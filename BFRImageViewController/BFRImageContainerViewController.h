@@ -43,4 +43,5 @@ typedef NS_ENUM(NSUInteger, BFRImageAssetType) {
 /*! Assigning YES to this property will disable autoplay for live photos when it used with 3DTouch peek feature */
 @property (nonatomic, getter=shouldDisableAutoplayForLivePhoto) BOOL disableAutoplayForLivePhoto;
 
+- (void)presentActivityController;
 @end
