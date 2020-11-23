@@ -7,6 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BFRImageContainerViewController.h"
+#import "BFRImageViewerLocalizations.h"
+#import "BFRImageTransitionAnimator.h"
+#import "BFRImageViewerConstants.h"
 
 @interface BFRImageViewController : UIViewController
 
