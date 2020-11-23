@@ -78,6 +78,17 @@
     [self updateChromeFrames];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+        [[UIDevice currentDevice]setValue:@(UIInterfaceOrientationPortrait) forKey:@"orientation"];
+    }
+//    if UI_USER_INTERFACE_IDIOM() != .pad {
+//        let value = UIInterfaceOrientation.portrait.rawValue
+//        UIDevice.current.setValue(value, forKey: "orientation")
+//    }
+}
+
 #pragma mark - Status bar
 
 - (BOOL)prefersStatusBarHidden {
@@ -147,6 +158,7 @@
         }
     }
     
+    
     // Setup image view controllers
     self.imageViewControllers = [NSMutableArray new];
     for (id imgSrc in self.images) {
@@ -167,6 +179,10 @@
                            direction:UIPageViewControllerNavigationDirectionForward
                             animated:NO
                           completion:nil];
+}
+
+- (void)canRotate {
+    
 }
 
 - (void)addChromeToUI {
