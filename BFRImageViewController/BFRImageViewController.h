@@ -42,6 +42,33 @@
 /*! Allows you to enable autoplay for peek&play feature on photo live view. Default to YES */
 @property (nonatomic, getter=shouldDisableAutoplayForLivePhoto) BOOL disableAutoplayForLivePhoto;
 
+//CRC
+/*! This view controller just acts as a container to hold a page view controller, which pages between the view controllers that hold an image. */
+@property (strong, nonatomic, nonnull) UIPageViewController *pagerVC;
+
+/*! Each image displayed is shown in its own instance of a BFRImageViewController. This array holds all of those view controllers, one per image. */
+@property (strong, nonatomic, nonnull) NSMutableArray <BFRImageContainerViewController *> *imageViewControllers;
+
+/*! This can contain a mix of @c NSURL, @c UIImage, @c PHAsset, @c BFRBackLoadedImageSource or @c NSStrings of URLS. This can be a mix of all these types, or just one. */
+@property (strong, nonatomic, nonnull) NSArray *images;
+
+/*! This will automatically hide the "Done" button after five seconds. */
+@property (strong, nonatomic, nullable) NSTimer *timerHideUI;
+
+/*! The button that sticks to the top left of the view that is responsible for dismissing this view controller. */
+@property (strong, nonatomic, nullable) UIButton *doneButton;
+
+/*! This will determine whether to change certain behaviors for 3D touch considerations based on its value. */
+@property (nonatomic, getter=isBeingUsedFor3DTouch) BOOL usedFor3DTouch;
+
+/*! This is used for nothing more than to defer the hiding of the status bar until the view appears to avoid any awkward jumps in the presenting view. */
+@property (nonatomic, getter=shouldHideStatusBar) BOOL hideStatusBar;
+
+/*! This creates the parallax scrolling effect by essentially clipping the scrolled images and moving with the touch point in scrollViewDidScroll. */
+@property (strong, nonatomic, nonnull) UIView *parallaxView;
+//END
+
+
 /*! Dismiss properly with animations */
 - (void)dismiss;
 
